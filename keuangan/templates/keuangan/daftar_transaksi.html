@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar Transaksi Keuangan</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Tanggal</th>
+            <th>Jenis</th>
+            <th>Jumlah</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transaksi %}
+        <tr>
+            <td>{{ t.tanggal }}</td>
+            <td>{{ t.get_tipe_display }}</td>
+            <td>Rp{{ t.jumlah }}</td>
+            <td>{{ t.keterangan }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

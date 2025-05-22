@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar Anggota</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nama</th>
+            <th>Email</th>
+            <th>No HP</th>
+            <th>Status</th>
+            <th>Tanggal Gabung</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in anggota %}
+        <tr>
+            <td>{{ a.nama }}</td>
+            <td>{{ a.email }}</td>
+            <td>{{ a.no_hp }}</td>
+            <td>{{ a.get_status_display }}</td>
+            <td>{{ a.tanggal_gabung }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

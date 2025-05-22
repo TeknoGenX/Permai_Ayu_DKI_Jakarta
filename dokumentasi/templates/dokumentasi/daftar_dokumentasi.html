@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Dokumentasi Kegiatan</h2>
+<div class="dokumentasi">
+    {% for dok in dokumentasi %}
+        <div style="margin-bottom: 30px;">
+            <h4>{{ dok.judul }} ({{ dok.tanggal }})</h4>
+            <p>{{ dok.deskripsi }}</p>
+            {% if dok.file_foto %}
+                <img src="{{ dok.file_foto.url }}" alt="{{ dok.judul }}" style="max-width:300px;">
+            {% endif %}
+            {% if dok.file_video %}
+                <video width="320" height="240" controls>
+                    <source src="{{ dok.file_video.url }}" type="video/mp4">
+                    Browser Anda tidak mendukung video.
+                </video>
+            {% endif %}
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}

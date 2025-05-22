@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Laporan Keuangan</h2>
+
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Tanggal</th>
+            <th>Jenis</th>
+            <th>Keterangan</th>
+            <th>Jumlah (Rp)</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for t in transaksi %}
+        <tr>
+            <td>{{ t.tanggal }}</td>
+            <td>{{ t.get_jenis_display }}</td>
+            <td>{{ t.keterangan }}</td>
+            <td style="text-align: right;">{{ t.jumlah }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+
+<h3>Total Pemasukan: Rp{{ total_masuk }}</h3>
+<h3>Total Pengeluaran: Rp{{ total_keluar }}</h3>
+<h2>Saldo Akhir: Rp{{ saldo }}</h2>
+{% endblock %}

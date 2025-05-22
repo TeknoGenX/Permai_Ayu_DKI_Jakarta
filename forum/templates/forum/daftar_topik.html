@@ -1,0 +1,11 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Forum Diskusi</h2>
+<ul>
+    {% for t in topik %}
+    <li>
+        <strong>{{ t.judul }}</strong> oleh {{ t.pembuat.username }} pada {{ t.tanggal_buat }}
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

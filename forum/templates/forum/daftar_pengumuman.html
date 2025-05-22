@@ -1,0 +1,12 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Pengumuman Organisasi</h2>
+<ul>
+    {% for p in pengumuman %}
+    <li>
+        <strong>{{ p.judul }}</strong> - {{ p.tanggal }}<br>
+        <p>{{ p.isi }}</p>
+    </li>
+    {% endfor %}
+</ul>
+{% endblock %}

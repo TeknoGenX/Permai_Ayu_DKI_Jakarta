@@ -1,0 +1,26 @@
+{% extends 'base.html' %}
+{% block content %}
+<h2>Agenda Kegiatan</h2>
+<table border="1" cellpadding="5">
+    <thead>
+        <tr>
+            <th>Nama Kegiatan</th>
+            <th>Tanggal</th>
+            <th>Lokasi</th>
+            <th>Penanggung Jawab</th>
+            <th>Keterangan</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for a in agenda %}
+        <tr>
+            <td>{{ a.nama_kegiatan }}</td>
+            <td>{{ a.tanggal_mulai }} - {{ a.tanggal_selesai }}</td>
+            <td>{{ a.lokasi }}</td>
+            <td>{{ a.penanggung_jawab }}</td>
+            <td>{{ a.keterangan }}</td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

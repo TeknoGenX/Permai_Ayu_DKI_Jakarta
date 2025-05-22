@@ -1,0 +1,29 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<h2>Daftar Surat Masuk & Keluar</h2>
+<table>
+    <thead>
+        <tr>
+            <th>Nomor Surat</th>
+            <th>Jenis</th>
+            <th>Tanggal</th>
+            <th>Pengirim/Penerima</th>
+            <th>Perihal</th>
+            <th>File</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for s in surat %}
+        <tr>
+            <td>{{ s.nomor_surat }}</td>
+            <td>{{ s.get_jenis_display }}</td>
+            <td>{{ s.tanggal }}</td>
+            <td>{{ s.pengirim_penerima }}</td>
+            <td>{{ s.perihal }}</td>
+            <td><a href="{{ s.file_surat.url }}" target="_blank">Lihat</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}
