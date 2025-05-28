@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-#m@n4-xelm^^000gka*jp)u&op39@^jtc-bove%srz$n0t@js6
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ['*']
+ALLOWED_HOSTS = ['127.0.0.1']
 
 
 # Application definition
@@ -51,7 +51,6 @@ INSTALLED_APPS += [
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
-    'whitenoise.middleware.WhiteNoiseMiddleware',
     'django.contrib.sessions.middleware.SessionMiddleware',
     'django.middleware.common.CommonMiddleware',
     'django.middleware.csrf.CsrfViewMiddleware',
@@ -126,6 +125,7 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/5.2/howto/static-files/
 
 STATIC_URL = 'static/'
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.2/ref/settings/#default-auto-field
@@ -134,7 +134,7 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 # Untuk akses file
 MEDIA_URL = '/media/'
-MEDIA_ROOT = BASE_DIR / 'media', 'staticfiles'
+MEDIA_ROOT = BASE_DIR / 'media'
 
 # Pengaturan email (gunakan SMTP asli untuk produksi)
 EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'  # Untuk testing
